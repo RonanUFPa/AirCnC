@@ -18,15 +18,9 @@ module.exports = {
     const user = await User.findById(user_id);
     
     if(!user){
-      return res.status(400).json({ error: 'User does not exist, try again later'})
+      return res.status(400).json({ error: 'User does not exist'})
     }
-
-    //const user = await User.findByIdAndRemove(user_id)
-
-    //if(!user){
-    //  return res.status(404).json({ error: 'Page and user not found'})
-    //}
-
+    
     const spot = await Spot.create({
       user: user_id,
       thumbmail: filename,
